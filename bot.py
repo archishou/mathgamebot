@@ -55,7 +55,4 @@ while current_score < wanted_score:
             button_correct.click()
         else:
             button_wrong.click()
-    else:
-        current_score = current_score - 1
-    current_score = current_score + 1
-
+    current_score = int(browser.find_element_by_id("score_value").text)
