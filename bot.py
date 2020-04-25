@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import privateurl
 import time
-url = privateurl.archi_url
+url = privateurl.wilson_url
 
 browser = webdriver.Safari()
 
@@ -22,7 +22,7 @@ button_correct = browser.find_element_by_id("button_correct")
 button_wrong = browser.find_element_by_id("button_wrong")
 button_correct.click()
 
-wanted_score = 690
+wanted_score = 42069
 current_score = 0
 while current_score < wanted_score:
     elem_x = browser.find_element_by_id("task_x")
