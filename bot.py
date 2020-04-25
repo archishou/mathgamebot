@@ -22,7 +22,7 @@ button_correct = browser.find_element_by_id("button_correct")
 button_wrong = browser.find_element_by_id("button_wrong")
 button_correct.click()
 
-wanted_score = 42069
+wanted_score = 690
 current_score = 0
 while current_score < wanted_score:
     elem_x = browser.find_element_by_id("task_x")
@@ -33,7 +33,8 @@ while current_score < wanted_score:
     expected_result = int(elem_expected_result.text)
     elem_op = browser.find_element_by_id("task_op")
     op = elem_op.text
-    print(op)
+    print("Score: " + str(current_score), end='\r')
+    print("Progress: " + str(current_score/wanted_score), end='\r')
     if op == '+':
         if x + y == expected_result:
             button_correct.click()
@@ -56,7 +57,5 @@ while current_score < wanted_score:
             button_wrong.click()
     else:
         current_score = current_score - 1
-        print("Unknown operation " + op)
     current_score = current_score + 1
-    time.sleep(0.1)
 
