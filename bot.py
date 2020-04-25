@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import privateurl
 import time
-url = privateurl.url
+url = privateurl.archi_url
 
 browser = webdriver.Safari()
 
