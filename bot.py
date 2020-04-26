@@ -25,28 +25,17 @@ button_correct.click()
 wanted_score = 20
 current_score = 0
 while current_score < wanted_score:
-    elem_x = browser.find_element_by_id("task_x")
-    x = int(elem_x.text)
-    elem_y = browser.find_element_by_id("task_y")
-    y = int(elem_y.text)
-    elem_expected_result = browser.find_element_by_id("task_res")
-    expected_result = int(elem_expected_result.text)
-    elem_op = browser.find_element_by_id("task_op")
-    op = elem_op.text
-    print("Score: " + str(current_score), end='\r')
+    x = int(browser.find_element_by_id("task_x").text)
+    y = int(browser.find_element_by_id("task_y").text)
+    expected_result = int(browser.find_element_by_id("task_res").text)
+    op = browser.find_element_by_id("task_op").text
     print("Progress: " + str(current_score/wanted_score), end='\r')
     correct = False
-    if op == '+':
-        correct = x + y == expected_result
-    elif op == '–':
-        correct = x - y == expected_result
-    elif op == '×':
-        correct =  x * y == expected_result
-    elif op == '/':
-        correct = x / y == expected_result
+    if op == '+': correct = x + y == expected_result
+    elif op == '–': correct = x - y == expected_result
+    elif op == '×': correct =  x * y == expected_result
+    elif op == '/': correct = x / y == expected_result
     
-    if correct:
-        button_correct.click()
-    else:
-        button_wrong.click()
+    if correct: button_correct.click()
+    else: button_wrong.click()
     current_score = int(browser.find_element_by_id("score_value").text)
